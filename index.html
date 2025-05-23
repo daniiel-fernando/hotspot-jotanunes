@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" type="image/png" sizes="96x96" href="Logo JOTA - 3.svg" />
+    <title>Hotspot Login | Jotanunes</title>
+
+    <!-- CSS -->
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="main.css" rel="stylesheet" />
+    <link href="font-awesome.min.css" rel="stylesheet" />
+    <link href="animate-custom.css" rel="stylesheet" />
+
+    <style>
+      .nav-tabs > li > a,
+      .nav-tabs > li > a:hover,
+      .nav-tabs > li > a:focus {
+        color: #000;
+        background-color: #fff;
+        border: 1px solid #fff;
+        border-bottom-color: transparent;
+      }
+
+      .nav-tabs > li.active > a,
+      .nav-tabs > li.active > a:hover,
+      .nav-tabs > li.active > a:focus {
+        color: #fff;
+        background-color: #da1212;
+        border: 1px solid #da1212;
+        border-bottom-color: transparent;
+      }
+
+      .slider {
+        position: relative;
+        overflow: hidden;
+        height: 300px;
+      }
+
+      .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .btnslide {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+      }
+
+      .btnslide-next {
+        right: 10px;
+      }
+
+      .btnslide-prev {
+        left: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <?if_logo_resize?>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#home">
+            <img
+              src="LOGO.png"
+              class="img-responsive"
+              style="margin-top: -24px; height: 60px"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+    <?if_logo_resize_end?>
+
+    <div id="headerwrap" name="home">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="slider">
+              <div class="slide">
+                <img src="Background.png" alt="" />
+              </div>
+              <div class="slide">
+                <img src="TESTE.jpg" alt="" />
+              </div>
+              <div class="slide">
+                <img src="teste2.jpg" alt="" />
+              </div>
+              <!--
+              Se quiser usar os botões, descomente abaixo:
+              <button class="btnslide btnslide-next">></button>
+              <button class="btnslide btnslide-prev">&lt;</button>
+              -->
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="inhouseguest">
+                <div
+                  style="
+                    height: 4px;
+                    width: 100%;
+                    background-color: #da1212;
+                    margin-bottom: 20px;
+                  "
+                ></div>
+
+                <?if_loggedout?>
+                <form method="POST" action="<?link-login?>" class="form">
+                  <h2>Bem-Vindo</h2>
+                  <h4>Por favor, leia e aceite os termos para se conectar</h4>
+
+                  <div
+                    style="
+                      border: 1px solid #ccc;
+                      border-radius: 5px;
+                      padding: 15px;
+                      background-color: #f9f9f9;
+                      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    "
+                  >
+                    <ul
+                      style="
+                        list-style-type: disc;
+                        padding-left: 20px;
+                        margin: 0;
+                      "
+                    >
+                      <li>O uso desta rede é monitorado pela JotaNunes.</li>
+                      <li>Todos os acessos são registrados conforme a LGPD.</li>
+                      <li>O tempo de conexão é limitado a 12 horas.</li>
+                      <li>
+                        Ao se conectar, você concorda com os termos de uso da
+                        rede.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="form-group" style="margin-top: 15px">
+                    <label
+                      ><input type="checkbox" name="lgpd_agreement" required />
+                      Eu li e aceito os termos acima.</label
+                    >
+                  </div>
+
+                  <div>
+                    <input
+                      class="btn btn-lg"
+                      type="submit"
+                      value="Aceitar e Conectar"
+                      style="background-color: #da1212; color: white"
+                    />
+                    <br /><br />
+                    Em caso de dúvidas, entre em contato com
+                    <a href="mailto:suporte@jotanunes.com"
+                      >suporte@jotanunes.com</a
+                    >
+                  </div>
+                </form>
+                <?if_loggedout_end?>
+
+                <?if_loggedin?>
+                <p>Você já está autenticado.</p>
+                <?if_loggedin_end?>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footerwrap">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            Jotanunes Construtora<br />
+            Endereço: Av. Dr Roosewelt Dantas Cardoso de Menezes, 770 - Centro,
+            Aracaju - SE, 49010-410<br />
+            Whatsapp: (79)9 9999-9999
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li>
+                <a href="https://www.youtube.com/c/jotanunesconstrutora"
+                  ><i class="fa fa-youtube"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/JotanunesConstrutora/?locale=pt_BR"
+                  ><i class="fa fa-facebook"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/jotanunesconstrutora/"
+                  ><i class="fa fa-instagram"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script>
+      const slides = document.querySelectorAll(".slide");
+      let curSlide = 0;
+      const maxSlide = slides.length - 1;
+      const nextSlide = document.querySelector(".btnslide-next");
+      const prevSlide = document.querySelector(".btnslide-prev");
+
+      // Posiciona os slides inicialmente
+      slides.forEach((slide, indx) => {
+        slide.style.transform = `translateX(${indx * 100}%)`;
+      });
+
+      // Função para ir para o próximo slide
+      function goNextSlide() {
+        curSlide = curSlide === maxSlide ? 0 : curSlide + 1;
+        slides.forEach((slide, indx) => {
+          slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
+        });
+      }
+
+      // Função para ir para o slide anterior
+      function goPrevSlide() {
+        curSlide = curSlide === 0 ? maxSlide : curSlide - 1;
+        slides.forEach((slide, indx) => {
+          slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
+        });
+      }
+
+      // Adiciona eventos aos botões apenas se eles existirem
+      if (nextSlide) {
+        nextSlide.addEventListener("click", () => {
+          goNextSlide();
+          resetAutoSlide();
+        });
+      }
+
+      if (prevSlide) {
+        prevSlide.addEventListener("click", () => {
+          goPrevSlide();
+          resetAutoSlide();
+        });
+      }
+
+      // Passa para o próximo slide automaticamente a cada 5 segundos
+      let slideInterval = setInterval(goNextSlide, 5000);
+
+      // Reinicia o timer quando o usuário clicar nos botões
+      function resetAutoSlide() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(goNextSlide, 5000);
+      }
+    </script>
+  </body>
+</html>
